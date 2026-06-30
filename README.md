@@ -6,7 +6,10 @@ machine-wide and per-user contexts, via two scheduled tasks that run at logon.
 ## How it works
 
 `Install.ps1` copies `Update-WinGetApps.ps1` to `C:\Program Files\WinGetAutoPatch\`
-(always the real Program Files, never the x86 redirect) and registers two scheduled tasks:
+(always the real Program Files, never the x86 redirect) and registers two scheduled tasks.
+It also starts both tasks immediately so patching doesn't wait for the next logon (the user
+task is skipped at install time if no one is interactively logged on yet — the logon trigger
+still covers that case):
 
 | Task | Runs as | Trigger | Covers |
 |---|---|---|---|
@@ -45,7 +48,7 @@ Pick one (registry is recommended — it also lets Intune detect version upgrade
    - Rule type: Registry
    - Key path: `HKEY_LOCAL_MACHINE\SOFTWARE\WinGetAutoPatch`
    - Value name: `Version`
-   - Detection method: `String comparison` → `Equals` → `1.0.0` (or `Value exists` for a looser check)
+   - Detection method: `String comparison` → `Equals` → `1.0.1` (or `Value exists` for a looser check)
 
 2. **File**
    - Rule type: File

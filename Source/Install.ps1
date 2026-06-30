@@ -17,7 +17,7 @@ if ([Environment]::Is64BitOperatingSystem -and -not [Environment]::Is64BitProces
     exit $LASTEXITCODE
 }
 
-$ScriptVersion = '1.0.0'
+$ScriptVersion = '1.0.1'
 $InstallDir = Join-Path $env:ProgramFiles 'WinGetAutoPatch'
 $LogDir = 'C:\ProgramData\WinGetAutoPatch\Logs'
 $SourceFile = Join-Path $PSScriptRoot 'Update-WinGetApps.ps1'
@@ -41,6 +41,12 @@ $userTrigger = New-ScheduledTaskTrigger -AtLogOn
 $userPrincipal = New-ScheduledTaskPrincipal -GroupId 'BUILTIN\Users' -RunLevel Limited
 $userSettings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1)
 Register-ScheduledTask -TaskName 'WinGet Auto Patch (User)' -Action $userAction -Trigger $userTrigger -Principal $userPrincipal -Settings $userSettings -Force | Out-Null
+
+Start-ScheduledTask -TaskName 'WinGet Auto Patch (System)'
+try {
+    # Fails if no one is interactively logged on yet; the AtLogon trigger still covers that case.
+    Start-ScheduledTask -TaskName 'WinGet Auto Patch (User)' -ErrorAction Stop
+} catch {}
 
 $RegKey = 'HKLM:\SOFTWARE\WinGetAutoPatch'
 New-Item -Path $RegKey -Force | Out-Null
