@@ -1,3 +1,4 @@
 output/
 *.intunewin
 IntuneWinAppUtil.exe
+*.log

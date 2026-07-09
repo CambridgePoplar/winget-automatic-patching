@@ -17,7 +17,7 @@ if ([Environment]::Is64BitOperatingSystem -and -not [Environment]::Is64BitProces
     exit $LASTEXITCODE
 }
 
-$ScriptVersion = '1.0.1'
+$ScriptVersion = '1.0.2'
 $InstallDir = Join-Path $env:ProgramFiles 'WinGetAutoPatch'
 $LogDir = 'C:\ProgramData\WinGetAutoPatch\Logs'
 $SourceFile = Join-Path $PSScriptRoot 'Update-WinGetApps.ps1'

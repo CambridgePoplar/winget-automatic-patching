@@ -48,7 +48,7 @@ Pick one (registry is recommended — it also lets Intune detect version upgrade
    - Rule type: Registry
    - Key path: `HKEY_LOCAL_MACHINE\SOFTWARE\WinGetAutoPatch`
    - Value name: `Version`
-   - Detection method: `String comparison` → `Equals` → `1.0.1` (or `Value exists` for a looser check)
+   - Detection method: `String comparison` → `Equals` → `1.0.2` (or `Value exists` for a looser check)
 
 2. **File**
    - Rule type: File

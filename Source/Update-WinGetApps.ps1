@@ -42,8 +42,23 @@ if (-not $wingetPath) {
     exit 1
 }
 
-$output = & $wingetPath upgrade --all --silent --accept-source-agreements --accept-package-agreements 2>&1
-$exitCode = $LASTEXITCODE
+# The System and User tasks can both fire at logon; serialize them so they don't
+# collide on the Windows Installer mutex (seen as "Another installation is already
+# in progress", exit code 1618).
+$mutex = [System.Threading.Mutex]::new($false, 'Global\WinGetAutoPatch')
+if (-not $mutex.WaitOne([TimeSpan]::FromMinutes(30))) {
+    $log.Add('ERROR: Timed out waiting for the other WinGet Auto Patch run to finish.')
+    $log | Set-Content -Path $LogPath -Encoding UTF8
+    exit 1
+}
+
+try {
+    $output = & $wingetPath upgrade --all --silent --accept-source-agreements --accept-package-agreements 2>&1
+    $exitCode = $LASTEXITCODE
+} finally {
+    $mutex.ReleaseMutex()
+}
+
 $log.AddRange([string[]]$output)
 $log.Add('')
 $log.Add("winget exit code: $exitCode")
