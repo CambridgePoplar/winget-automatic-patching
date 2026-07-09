@@ -1,0 +1,73 @@
+﻿WinGet Auto Patch - System context
+Run time: 2026-07-09 08:06:04
+
+The `msstore` source requires that you view the following agreements before using.
+Terms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction
+The source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. "US").
+
+Name                                            Id                                  Version        Available      Source
+------------------------------------------------------------------------------------------------------------------------
+Go Programming Language amd64 go1.26.4          GoLang.Go                           1.26.4         1.26.5         winget
+Google Chrome                                   Google.Chrome                       150.0.7871.101 150.0.7871.115 winget
+Microsoft Azure CLI (64-bit)                    Microsoft.AzureCLI                  2.87.0         2.88.0         winget
+Microsoft Azure Storage Explorer version 1.43.0 Microsoft.Azure.StorageExplorer     1.43.0         1.44.0         winget
+Visual Studio Build Tools 2026                  Microsoft.VisualStudio.BuildTools   18.7.2         18.7.3         winget
+Visual Studio Professional 2026 (2)             Microsoft.VisualStudio.Professional 18.7.2         18.7.3         winget
+6 upgrades available.
+
+(1/6) Found Microsoft Azure CLI [Microsoft.AzureCLI] Version 2.88.0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://azcliprod.blob.core.windows.net/msi/azure-cli-2.88.0-x64.msi
+Successfully verified installer hash
+Starting package install...
+Another installation is already in progress. Try again later.
+Installer failed with exit code: 1618
+Installer log is available at: C:\Windows\TEMP\WinGet\defaultState\Microsoft.AzureCLI.2.88.0-26-07-09-08-06-38.log
+
+(2/6) Found Microsoft Azure Storage Explorer [Microsoft.Azure.StorageExplorer] Version 1.44.0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://github.com/microsoft/AzureStorageExplorer/releases/download/v1.44.0/StorageExplorer-windows-x64.exe
+Successfully verified installer hash
+Starting package install...
+Successfully installed
+
+(3/6) Found Google Chrome [Google.Chrome] Version 150.0.7871.115
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi
+Successfully verified installer hash
+Starting package install...
+Another installation is already in progress. Try again later.
+Installer failed with exit code: 1618
+Installer log is available at: C:\Windows\TEMP\WinGet\defaultState\Google.Chrome.150.0.7871.115-26-07-09-08-08-53.log
+
+(4/6) Found Go Programming Language [GoLang.Go] Version 1.26.5
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://go.dev/dl/go1.26.5.windows-amd64.msi
+Successfully verified installer hash
+Starting package install...
+Another installation is already in progress. Try again later.
+Installer failed with exit code: 1618
+Installer log is available at: C:\Windows\TEMP\WinGet\defaultState\GoLang.Go.1.26.5-26-07-09-08-10-01.log
+
+(5/6) Found Visual Studio Professional 2026 [Microsoft.VisualStudio.Professional] Version 18.7.3
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://download.visualstudio.microsoft.com/download/pr/4037ccca-d103-412b-a678-bc0aa164315e/f7a8f1100dbfbeac4bad4dce7ad067035ee978f213f5c2316f15b060139c558a/vs_Professional.exe
+Successfully verified installer hash
+Starting package install...
+Installer failed with exit code: 2148734267
+
+(6/6) Found Visual Studio BuildTools 2026 [Microsoft.VisualStudio.BuildTools] Version 18.7.3
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://download.visualstudio.microsoft.com/download/pr/4037ccca-d103-412b-a678-bc0aa164315e/07b09afd416dc05c781f171c881c23e42907eeb8d812fa1d2993dffb9323c869/vs_BuildTools.exe
+Successfully verified installer hash
+Starting package install...
+Successfully installed
+
+
+winget exit code: -1978335188
